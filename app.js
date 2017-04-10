@@ -30,6 +30,12 @@ app.use(express.static('public'));
  *
  */
 
+const httpsOptions = {
+  key: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/cert.pem'),
+  ca: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/chain.pem')
+}
+
 // App Secret can be retrieved from the App Dashboard
 const APP_SECRET = (process.env.MESSENGER_APP_SECRET) ? 
   process.env.MESSENGER_APP_SECRET :
@@ -830,7 +836,7 @@ function callSendAPI(messageData) {
 // Start server
 // Webhooks must be available via SSL with a certificate signed by a valid 
 // certificate authority.
-app.listen(app.get('port'), function() {
+https.createServer(httpsOptions, app).listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
 
