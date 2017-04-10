@@ -35,7 +35,7 @@ const httpsOptions = {
   key: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/cert.pem'),
   ca: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/chain.pem')
-}
+};
 
 // App Secret can be retrieved from the App Dashboard
 const APP_SECRET = (process.env.MESSENGER_APP_SECRET) ? 
