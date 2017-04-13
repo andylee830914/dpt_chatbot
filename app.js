@@ -202,7 +202,8 @@ function receivedAuthentication(event) {
   console.log("Received authentication for user %d and page %d with pass " +
     "through param '%s' at %d", senderID, recipientID, passThroughParam, 
     timeOfAuth);
-  data = Buffer.from(passThroughParam, 'base64')
+  data = Buffer.from(passThroughParam, 'base64');
+  console.log(data);
   console.log("missionid:"+data.id+", moodleid:"+data.moodleid);
 
   // When an authentication is received, we'll send a message back to the sender
