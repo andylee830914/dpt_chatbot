@@ -265,15 +265,15 @@ function receivedMessage(event) {
       messageId, quickReplyPayload);
     switch (quickReplyPayload) {
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH':
-        sendTextMessage(senderID, "助教我完成了！請幫我檢查～");
+        //sendTextMessage(senderID, "助教我完成了！請幫我檢查～");
         
         break;
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE':
-        sendTextMessage(senderID, "助教我要預約");
+        // sendTextMessage(senderID, "助教我要預約");
         break;
 
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK':
-        sendTextMessage(senderID, "助教我要問問題");
+        // sendTextMessage(senderID, "助教我要問問題");
         break;
 
       default:
@@ -756,7 +756,6 @@ function sendQuickReply(recipientId) {
 }
 
 function askQuestion(recipientId,missionid) {
-  var title;
   connection.query('SELECT * FROM mission where id="'+missionid+'"', function (error, results, fields) {
     if (error) throw error;
     console.log('The solution is: ', results[0].name);
@@ -776,12 +775,12 @@ function askQuestion(recipientId,missionid) {
         },
         {
           "content_type": "text",
-          "title": "預約關主",
+          "title": "我要預約",
           "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE"
         },
         {
           "content_type": "text",
-          "title": "發問",
+          "title": "我要發問",
           "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK"
         }
       ]
