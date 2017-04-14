@@ -25,11 +25,19 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json({ verify: verifyRequestSignature }));
 app.use(express.static('public'));
 
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: config.get('mysqlHost'),
+  user: config.get('mysqlUser'),
+  password: config.get('mysqlPass'),
+  database: config.get('mysqlDb')
+});
 /*
  * Be sure to setup your config values before running this code. You can 
  * set them using environment variables or modifying the config file in /config.
  *
  */
+connection.connect();
 
 const httpsOptions = {
   key: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/privkey.pem'),
@@ -208,7 +216,7 @@ function receivedAuthentication(event) {
 
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
-  sendTextMessage(senderID, "missionid:" + data.id + ", moodleid:" + data.moodleid);
+  // sendTextMessage(senderID, "missionid:" + data.id + ", moodleid:" + data.moodleid);
 }
 
 /*
@@ -254,8 +262,25 @@ function receivedMessage(event) {
     var quickReplyPayload = quickReply.payload;
     console.log("Quick reply for message %s with payload %s",
       messageId, quickReplyPayload);
+    switch (quickReplyPayload) {
+      case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH':
+        sendTextMessage(senderID, "助教我完成了！請幫我檢查～");
+        
+        break;
+      case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE':
+        sendTextMessage(senderID, "助教我要預約");
+        break;
 
-    sendTextMessage(senderID, "Quick reply tapped");
+      case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK':
+        sendTextMessage(senderID, "助教我要問問題");
+        break;
+
+      default:
+        sendTextMessage(senderID, "Quick reply tapped");
+      
+        break;
+    }
+
     return;
   }
 
@@ -728,6 +753,42 @@ function sendQuickReply(recipientId) {
 
   callSendAPI(messageData);
 }
+
+function askQuestion(recipientId,missionid) {
+  connection.query('SELECT * FROM mission where id="'+missionid+'"', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].name);
+    var title = results[0].name;
+  });
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: "請問你在「" + title +"」關卡需要什麼幫助嗎？",
+      quick_replies: [
+        {
+          "content_type": "text",
+          "title": "我完成了",
+          "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH"
+        },
+        {
+          "content_type": "text",
+          "title": "預約關主",
+          "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE"
+        },
+        {
+          "content_type": "text",
+          "title": "發問",
+          "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK"
+        }
+      ]
+    }
+  };
+
+  callSendAPI(messageData);
+}
+
 
 /*
  * Send a read receipt to indicate the message has been read
