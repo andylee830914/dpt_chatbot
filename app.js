@@ -756,10 +756,11 @@ function sendQuickReply(recipientId) {
 }
 
 function askQuestion(recipientId,missionid) {
+  var title;
   connection.query('SELECT * FROM mission where id="'+missionid+'"', function (error, results, fields) {
     if (error) throw error;
     console.log('The solution is: ', results[0].name);
-    var title = results[0].name;
+    title = results[0].name;
   });
   var messageData = {
     recipient: {
