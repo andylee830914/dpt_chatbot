@@ -37,7 +37,6 @@ var connection = mysql.createConnection({
  * set them using environment variables or modifying the config file in /config.
  *
  */
-connection.end();
 
 const httpsOptions = {
   key: fs.readFileSync('/etc/letsencrypt/live/dpt.emath.tw/privkey.pem'),
@@ -756,11 +755,13 @@ function sendQuickReply(recipientId) {
 }
 
 function askQuestion(recipientId,missionid) {
+  connection.connect();
   connection.query('SELECT * FROM mission where id="'+missionid+'"', function (error, results, fields) {
     if (error) throw error;
     console.log('The solution is: ', results[0].name);
     title = results[0].name;
   });
+  connection.end();
   var messageData = {
     recipient: {
       id: recipientId
