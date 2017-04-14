@@ -908,3 +908,5 @@ https.createServer(httpsOptions, app).listen(app.get('port'), function () {
 
 module.exports = app;
 
+connection.end();
+
