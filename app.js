@@ -296,6 +296,13 @@ function receivedMessage(event) {
       case '安安助教':
         sendTextMessage(senderID, "安安你好，有事嗎？");
         break;
+      default:
+        if (messageText.search("87")>0){
+          var myArray=['夠了喔','你這個87','你才87','你說誰87？'];
+          var rand = myArray[Math.floor(Math.random() * myArray.length)];
+          sendTextMessage(senderID, rand);          
+        }
+      break;
          
     }
   }
