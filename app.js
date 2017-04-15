@@ -284,6 +284,21 @@ function receivedMessage(event) {
     return;
   }
 
+  if (messageText) {
+
+    // If we receive a text message, check to see if it matches any special
+    // keywords and send back the corresponding example. Otherwise, just echo
+    // the text we received.
+    switch (messageText) {
+      case '助教安安':
+        sendTextMessage(senderID, "安安你好，有事嗎？");
+        break;
+      case '安安助教':
+        sendTextMessage(senderID, "安安你好，有事嗎？");
+        break;
+         
+    }
+  }
 }
 
 
