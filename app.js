@@ -316,6 +316,8 @@ function receivedMessage(event) {
           sendTextMessage(senderID, rand);
         } else if (messageText.search("陪") >= 0){
           sendReadReceipt(senderID);
+        } else if (messageText.search("無聊") >= 0){
+          sendTypingOn(senderID);
         }
       break;
          
