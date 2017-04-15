@@ -264,15 +264,15 @@ function receivedMessage(event) {
       messageId, quickReplyPayload);
     switch (quickReplyPayload) {
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH':
-        //sendTextMessage(senderID, "助教我完成了！請幫我檢查～");
+        sendTextMessage(senderID, "好的！助教收到了～");
         
         break;
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE':
-        // sendTextMessage(senderID, "助教我要預約");
+        sendTextMessage(senderID, "你要什麼時候來呢？");
         break;
 
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK':
-        // sendTextMessage(senderID, "助教我要問問題");
+        sendTextMessage(senderID, "助教我要問問題");
         break;
 
       default:
