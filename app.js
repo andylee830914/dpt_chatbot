@@ -755,19 +755,12 @@ function sendQuickReply(recipientId) {
 }
 
 function askQuestion(recipientId,missionid) {
-  connection.connect();
-  connection.query('SELECT * FROM mission where id="'+missionid+'"', function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results[0].name);
-    title = results[0].name;
-  });
-  connection.end();
+;
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: "請問你在「" + title +"」關卡需要什麼幫助嗎？",
       quick_replies: [
         {
           "content_type": "text",
@@ -787,6 +780,15 @@ function askQuestion(recipientId,missionid) {
       ]
     }
   };
+
+  connection.connect();
+  connection.query('SELECT * FROM mission where id="' + missionid + '"', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].name);
+    title = results[0].name;
+    messageData.message.text = "請問你在「" + title + "」關卡需要什麼幫助嗎？";
+  });
+  connection.end()
 
   callSendAPI(messageData);
 }
