@@ -787,10 +787,11 @@ function askQuestion(recipientId,missionid) {
     console.log('The solution is: ', results[0].name);
     var title = results[0].name;
     messageData.message.text = "請問你在「" + title + "」關卡需要什麼幫助嗎？";
+    callSendAPI(messageData);
+    
   });
   connection.end()
 
-  callSendAPI(messageData);
 }
 
 
