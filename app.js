@@ -306,6 +306,12 @@ function receivedMessage(event) {
           sendTextMessage(senderID, '好課值得一修再修');   
         } else if (messageText.search("助教") >= 0 && messageText.search("救我")){
           sendTextMessage(senderID, '不要。');   
+        } else if (messageText.search("幹") >= 0 || messageText.search("靠") >= 0 || messageText.search("乾") >= 0 ){
+          sendTextMessage(senderID, '以截圖');   
+        } else if (messageText.search("邊緣") >= 0) {
+          var myArray = ['夠了喔', '大魯蛇4ni', '邊緣人你好', '你說誰邊緣？'];
+          var rand = myArray[Math.floor(Math.random() * myArray.length)];
+          sendTextMessage(senderID, rand);
         }
       break;
          
