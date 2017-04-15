@@ -314,6 +314,8 @@ function receivedMessage(event) {
           var myArray = ['夠了喔', '大魯蛇4ni', '邊緣人你好', '你說誰邊緣？'];
           var rand = myArray[Math.floor(Math.random() * myArray.length)];
           sendTextMessage(senderID, rand);
+        } else if (messageText.search("陪") >= 0){
+          sendReadReceipt(senderID);
         }
       break;
          
