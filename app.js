@@ -303,7 +303,9 @@ function receivedMessage(event) {
           sendTextMessage(senderID, rand);          
         } else if (messageText.search("當") >= 0 && 
                   (messageText.search("計概") >= 0 || messageText.search("線代") >= 0 || messageText.search("普物") >= 0) ){
-          sendTextMessage(senderID, '好課值得一修再修');   
+          var myArray = ['好課值得一修再修', '幫QQ','拍拍'];
+          var rand = myArray[Math.floor(Math.random() * myArray.length)];
+          sendTextMessage(senderID, rand);   
         } else if (messageText.search("助教") >= 0 && messageText.search("救我") >=0 ){
           sendTextMessage(senderID, '不要。');   
         } else if (messageText.search("幹") >= 0 || messageText.search("靠") >= 0 || messageText.search("乾") >= 0 || messageText.search("shit") >= 0){
