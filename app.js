@@ -414,6 +414,8 @@ function receivedAccountLink(event) {
 
   var status = event.account_linking.status;
   var authCode = event.account_linking.authorization_code;
+  var data = JSON.parse(Buffer.from(authCod, 'base64').toString());
+  console.log("auth:" + data.auth + ", moodleid:" + data.moodleid);
 
   console.log("Received account link event with for user %d with status %s " +
     "and auth code %s ", senderID, status, authCode);
