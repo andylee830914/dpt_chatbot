@@ -546,7 +546,7 @@ function sendAccountLinking(recipientId) {
           text: "Welcome. Link your account.",
           buttons:[{
             type: "account_link",
-            url: SERVER_URL + "/authorize"
+            url: "http://dpt.emath.tw/index.php/welcome/authorize"
           }]
         }
       }
