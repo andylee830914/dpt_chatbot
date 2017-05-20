@@ -416,7 +416,11 @@ function receivedAccountLink(event) {
   var authCode = event.account_linking.authorization_code;
   var data = JSON.parse(Buffer.from(authCode, 'base64').toString());
   console.log("auth:" + data.auth + ", moodleid:" + data.moodleid);
-
+  connection.query('UPDATE `users` SET `psid`="' + senderID + '"  where moodleid="' + data.moodleid + '"', function (error, results, fields) {
+    if (error) throw error;
+    messageData = "歡迎登入大平台～";
+    sendTextMessage(senderID,messageData); 
+  });
   console.log("Received account link event with for user %d with status %s " +
     "and auth code %s ", senderID, status, authCode);
 }
