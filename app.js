@@ -478,7 +478,7 @@ function askQuestion(recipientId,missionid) {
     if (error) throw error;
     console.log('The solution is: ', results[0].name);
     var title = results[0].name;
-    messageData.message.text = "請問你在「" + title + "」關卡需要什麼幫助嗎？";
+    messageData.message.text = "請問你在「" + title + "」關卡\n需要什麼幫助嗎？";
     callSendAPI(messageData);    
   });
 
