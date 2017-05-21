@@ -215,7 +215,11 @@ function receivedAuthentication(event) {
 
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
-  askQuestion(senderID, data.id);
+  if (data.link=='true') {
+    sendAccountLinking(senderID);
+  }else{
+    askQuestion(senderID, data.id);    
+  }
   // sendTextMessage(senderID, "missionid:" + data.id + ", moodleid:" + data.moodleid);
 }
 
