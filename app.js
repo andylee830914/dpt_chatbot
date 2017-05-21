@@ -294,6 +294,24 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
+      case 'help':
+        sendTextMessage(senderID, "助教安安\n");
+        sendTextMessage(senderID, "安安助教\n");
+        sendTextMessage(senderID, "login\n");
+        sendTextMessage(senderID, "87\n");
+        sendTextMessage(senderID, "當\n");
+        sendTextMessage(senderID, "助教救我\n");
+        sendTextMessage(senderID, "幹\n");
+        sendTextMessage(senderID, "邊緣\n");
+        sendTextMessage(senderID, "陪\n");
+        sendTextMessage(senderID, "無聊\n");
+        break;
+      case '李昱勳':
+        sendTextMessage(senderID, "我是個87");
+        break;
+      case '李柏寬':
+        sendTextMessage(senderID, "安安我超宅");
+        break;
       case '助教安安':
         sendTextMessage(senderID, "安安你好，有事嗎？");
         break;
