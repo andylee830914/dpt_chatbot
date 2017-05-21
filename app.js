@@ -448,9 +448,7 @@ function sendTextMessage(recipientId, messageText) {
 }
 
 
-
 function askQuestion(recipientId,missionid) {
-;
   var messageData = {
     recipient: {
       id: recipientId
