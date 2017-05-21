@@ -295,16 +295,7 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
       case 'help':
-        sendTextMessage(senderID, "助教安安\n");
-        sendTextMessage(senderID, "安安助教\n");
-        sendTextMessage(senderID, "login\n");
-        sendTextMessage(senderID, "87\n");
-        sendTextMessage(senderID, "當\n");
-        sendTextMessage(senderID, "助教救我\n");
-        sendTextMessage(senderID, "幹\n");
-        sendTextMessage(senderID, "邊緣\n");
-        sendTextMessage(senderID, "陪\n");
-        sendTextMessage(senderID, "無聊\n");
+        sendTextMessage(senderID, "助教安安。\n安安助教。\n87。\n當。\n助教救我。\n幹。\n邊緣。\n陪。\n無聊。\n");
         break;
       case '李昱勳':
         sendTextMessage(senderID, "我是個87");
