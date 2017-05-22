@@ -268,15 +268,15 @@ function receivedMessage(event) {
       messageId, quickReplyPayload);
     switch (quickReplyPayload) {
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH':
-        sendTextMessage(senderID, "好的！助教收到了～");
+        sendTextMessage(senderID, "好啦看到了看到了");
         
         break;
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE':
-        sendTextMessage(senderID, "你要什麼時候來呢？");
+        sendTextMessage(senderID, "自己去網路上預約啦");
         break;
 
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK':
-        sendTextMessage(senderID, "你要問什麼問題呢？");
+        sendTextMessage(senderID, "不會問google喔？");
         break;
 
       default:
@@ -295,7 +295,10 @@ function receivedMessage(event) {
     // the text we received.
     switch (messageText) {
       case 'help':
-        sendTextMessage(senderID, "機器人關鍵字：\n助教安安\n安安助教\n87\n當(ㄉㄤˋ)\n助教救我\n幹\n邊緣\n陪\n無聊");
+        sendTextMessage(senderID, "機器人關鍵字：\n助教安安\n安安助教\n87\n當(ㄉㄤˋ)\n助教救我\n幹\n邊緣\n陪\n無聊\n肥宅");
+        break;
+      case '肥宅':
+        sendTextMessage(senderID, "你才肥宅，你全家都肥宅!");
         break;
       case '李昱勳':
         sendTextMessage(senderID, "我是個87");
