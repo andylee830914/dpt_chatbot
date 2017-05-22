@@ -322,7 +322,7 @@ function receivedMessage(event) {
           sendTextMessage(senderID, rand);          
         } else if (messageText.search("為什麼") >= 0 && (messageText.search("？") >= 0 || messageText.indexOf("?") >= 0)){
           messageText.replace('為什麼', '').replace('?', '').replace('？', '');
-          var test = 'http://lmgtfy.com/?q='.encodeURI(messageText);
+          var test = 'http://lmgtfy.com/?q='+encodeURI(messageText);
           sendTextMessage(senderID, test);  
         } else if (messageText.search("當") >= 0 && 
                   (messageText.search("計概") >= 0 || messageText.search("線代") >= 0 || messageText.search("普物") >= 0) ){
