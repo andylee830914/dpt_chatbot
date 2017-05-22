@@ -321,7 +321,7 @@ function receivedMessage(event) {
           var rand = myArray[Math.floor(Math.random() * myArray.length)];
           sendTextMessage(senderID, rand);          
         } else if (messageText.search("為什麼") >= 0 && (messageText.search("？") >= 0 || messageText.indexOf("?") >= 0)){
-          text=messageText.replace('為什麼', '').replace('?', '').replace('？', '');
+          var text = messageText.replace('為什麼', '').replace('?', '').replace('？', '').replace('呢', '').replace('嗎', '');
           var test = 'http://lmgtfy.com/?q=' + encodeURI(text);
           sendTextMessage(senderID, test);  
         } else if (messageText.search("當") >= 0 && 
