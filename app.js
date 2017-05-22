@@ -320,7 +320,7 @@ function receivedMessage(event) {
           var myArray=['夠了喔','你這個87','你才87','你說誰87？'];
           var rand = myArray[Math.floor(Math.random() * myArray.length)];
           sendTextMessage(senderID, rand);          
-        } else if (messageText.search("為什麼") >= 0 && (messageText.search("？") >= 0 || messageText.search("?") >= 0)){
+        } else if (messageText.search("為什麼") >= 0 && (messageText.search("？") >= 0 || messageText.indexOf("?") >= 0)){
           messageText.replace('為什麼', '').replace('?', '').replace('？', '');
           var test = 'http://lmgtfy.com/?q='.encodeURI(messageText);
           sendTextMessage(senderID, test);  
