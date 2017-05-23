@@ -278,7 +278,11 @@ function receivedMessage(event) {
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK':
         sendTextMessage(senderID, "不會問google喔？");
         break;
-
+		
+	 case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_PREVIEW':
+        sendTextMessage(senderID, "是不會自己預習喔？");
+        break;
+		
       default:
         sendTextMessage(senderID, "Quick reply tapped");
       
@@ -312,9 +316,14 @@ function receivedMessage(event) {
       case '安安助教':
         sendTextMessage(senderID, "安安你好，有事嗎？");
         break;
+      case '助教':
+        sendTextMessage(senderID, "安好!有事嗎？");
+        break;
       case 'login':
         sendAccountLinking(senderID);
         break;
+	 
+		
       default:
         if (messageText.search("87")>=0){
           var myArray=['夠了喔','你這個87','你才87','你說誰87？'];
@@ -486,6 +495,11 @@ function askQuestion(recipientId,missionid) {
           "title": "我要發問",
           "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK"
         }
+		 {
+          "content_type": "text",
+          "title": "我要複習",
+          "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_PREVIEW"
+        },
       ]
     }
   };
