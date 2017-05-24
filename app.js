@@ -499,7 +499,7 @@ function askQuestion(recipientId,missionid) {
           "content_type": "text",
           "title": "我要複習",
           "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_PREVIEW"
-        },
+        }
       ]
     }
   };
