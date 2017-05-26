@@ -310,9 +310,9 @@ function receivedMessage(event) {
       case '李柏寬':
         sendTextMessage(senderID, "安安我超宅");
         break;
-      case '九十通關':
-	sendTextMessage(sender ID, "祝你沒過啦");
-	break;
+      case '預約九十通關':
+        sendTextMessage(senderID, "祝你不會過");
+        break;
       case '助教安安':
         sendTextMessage(senderID, "安安你好，有事嗎？");
         break;
@@ -351,7 +351,12 @@ function receivedMessage(event) {
           var myArray = ['夠了喔', '大魯蛇4ni', '邊緣人你好', '你說誰邊緣？'];
           var rand = myArray[Math.floor(Math.random() * myArray.length)];
           sendTextMessage(senderID, rand);
-        } else if (messageText.search("陪") >= 0){
+        } else if (messageText.search("幾分") >= 0 && 
+                  (messageText.search("計概") >= 0 || messageText.search("線代") >= 0 || messageText.search("普物") >= 0) ){
+          var myArray = ['87', '59','不告訴你'];
+          var rand = myArray[Math.floor(Math.random() * myArray.length)];
+          sendTextMessage(senderID, rand);   
+		} else if (messageText.search("陪") >= 0){
           sendReadReceipt(senderID);
         } else if (messageText.search("無聊") >= 0){
           sendTypingOn(senderID);
