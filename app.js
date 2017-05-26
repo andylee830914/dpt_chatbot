@@ -310,6 +310,9 @@ function receivedMessage(event) {
       case '李柏寬':
         sendTextMessage(senderID, "安安我超宅");
         break;
+      case '預約九十通關':
+        sendTextMessage(senderID, "祝你不會過");
+        break;
       case '助教安安':
         sendTextMessage(senderID, "安安你好，有事嗎？");
         break;
