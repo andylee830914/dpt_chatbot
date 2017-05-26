@@ -356,7 +356,7 @@ function receivedMessage(event) {
           var myArray = ['87', '59','不告訴你'];
           var rand = myArray[Math.floor(Math.random() * myArray.length)];
           sendTextMessage(senderID, rand);   
-		} else if (messageText.search("陪") >= 0){
+		    } else if (messageText.search("陪") >= 0){
           sendReadReceipt(senderID);
         } else if (messageText.search("無聊") >= 0){
           sendTypingOn(senderID);
