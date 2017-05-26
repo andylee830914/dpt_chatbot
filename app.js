@@ -348,7 +348,12 @@ function receivedMessage(event) {
           var myArray = ['夠了喔', '大魯蛇4ni', '邊緣人你好', '你說誰邊緣？'];
           var rand = myArray[Math.floor(Math.random() * myArray.length)];
           sendTextMessage(senderID, rand);
-        } else if (messageText.search("陪") >= 0){
+        } else if (messageText.search("幾分") >= 0 && 
+                  (messageText.search("計概") >= 0 || messageText.search("線代") >= 0 || messageText.search("普物") >= 0) ){
+          var myArray = ['87', '59','不告訴你'];
+          var rand = myArray[Math.floor(Math.random() * myArray.length)];
+          sendTextMessage(senderID, rand);   
+		} else if (messageText.search("陪") >= 0){
           sendReadReceipt(senderID);
         } else if (messageText.search("無聊") >= 0){
           sendTypingOn(senderID);
