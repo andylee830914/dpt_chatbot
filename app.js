@@ -360,6 +360,10 @@ function receivedMessage(event) {
           sendReadReceipt(senderID);
         } else if (messageText.search("無聊") >= 0){
           sendTypingOn(senderID);
+        } else if (messageText.search("オラ") >=0 ){
+          var count = (messageText.match(/オラ/g)||[]).length;
+          var test = '無駄';
+          sendTextMessage(senderID, test.repeat(count));
         }
       break;
          
