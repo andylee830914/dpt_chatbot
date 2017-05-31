@@ -325,6 +325,10 @@ function receivedMessage(event) {
       case '助教':
         sendTextMessage(senderID, "安好!有事嗎？");
         break;
+      case '兇':
+        sendTextMessage(senderID, "怕.jpg");
+	sendTextMessage(senderID, "你真他媽幹話王ㄝ!?");	    
+        break;	    
       case 'login':
         sendAccountLinking(senderID);
         break;
