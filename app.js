@@ -305,7 +305,7 @@ function receivedMessage(event) {
         sendTextMessage(senderID, "你才肥宅，你全家都肥宅!");
         break;
       case '嘿柴犬':
-        sendVideoMessage(senderID, 'gandog.mp4')
+        sendVideoMessage(senderID, 'gandog.mov')
         break;
       case '李昱勳':
         sendTextMessage(senderID, "我是個87");
