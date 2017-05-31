@@ -302,6 +302,7 @@ function receivedMessage(event) {
         break;
       case '嘿柴犬':
         sendTextMessage(senderID, "你她媽我是臘腸臘腸!");
+        break;
       case '李昱勳':
         sendTextMessage(senderID, "我是個87");
         break;
