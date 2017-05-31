@@ -305,7 +305,7 @@ function receivedMessage(event) {
         sendTextMessage(senderID, "你才肥宅，你全家都肥宅!");
         break;
       case '嘿柴犬':
-        sendTextMessage(senderID, "你她媽我是臘腸臘腸!");
+        sendVideoMessage(senderID, 'gandog.mp4')
         break;
       case '李昱勳':
         sendTextMessage(senderID, "我是個87");
@@ -327,7 +327,7 @@ function receivedMessage(event) {
         break;
       case '兇':
         sendTextMessage(senderID, "怕.jpg");
-	sendTextMessage(senderID, "你真他媽幹話王ㄝ!?");	    
+	      sendTextMessage(senderID, "你真他媽幹話王ㄝ!?");	    
         break;	    
       case 'login':
         sendAccountLinking(senderID);
@@ -491,6 +491,23 @@ function sendTextMessage(recipientId, messageText) {
   callSendAPI(messageData);
 }
 
+function sendVideoMessage(recipientId,filename) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "video",
+        payload: {
+          url: SERVER_URL + "/assets/" + filename
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
+}
 
 function askQuestion(recipientId,missionid) {
   var messageData = {
