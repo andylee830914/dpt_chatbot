@@ -670,6 +670,7 @@ function callGraphAPI(recipientId) {
     if (!error && response.statusCode == 200) {
       var firstname = body.first_name;
       var lastname = body.last_name;
+      body = JSON.parse(body);
       console.log(body, lastname, body.last_name);
       if (lastname) {
         console.log("Successfully sent message with id %s to recipient %s",
