@@ -308,6 +308,7 @@ function receivedMessage(event) {
         sendVideoMessage(senderID, 'gandog.mov')
         break;
       case '李昱勳':
+        callGraphAPI(senderID);
         sendTextMessage(senderID, "我是個87");
         break;
       case '李柏寬':
@@ -657,6 +658,30 @@ function callSendAPI(messageData) {
       console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
     }
   });  
+}
+
+function callGraphAPI(recipientId) {
+  request({
+    uri: 'https://graph.facebook.com/v2.6/' + recipientId,
+    qs: { access_token: PAGE_ACCESS_TOKEN, fields:'first_name,last_name'},
+    method: 'GET'
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var firstname = body.first_name;
+      var lastname = last_name;
+
+      if (lastname) {
+        console.log("Successfully sent message with id %s to recipient %s",
+          lastname, recipientId);
+      } else {
+        console.log("Successfully called Send API for recipient %s",
+          recipientId);
+      }
+    } else {
+      console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+    }
+  });
 }
 
 // Start server
