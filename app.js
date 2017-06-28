@@ -307,10 +307,12 @@ function receivedMessage(event) {
       case '嘿柴犬':
         sendVideoMessage(senderID, 'gandog.mov')
         break;
-      case '李昱勳':
-        callGraphAPI(senderID,function (err,res) {
-          console.log(res);
+      case '嗨昱勳':
+        callGraphAPI(senderID, function (err, res) {
+          sendTextMessage(senderID, "嗨"+res.first_name);
         });
+        break;
+      case '李昱勳':
         sendTextMessage(senderID, "我是個87");
         break;
       case '李柏寬':
