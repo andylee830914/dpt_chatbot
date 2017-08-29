@@ -544,14 +544,20 @@ function askQuestion(recipientId,missionid) {
       ]
     }
   };
+  
+  if(missionid=="moodle"){
+      messageData.message.text = "請問你需要什麼幫助嗎？";
+      callSendAPI(messageData);   
+  }else{
+    connection.query('SELECT * FROM mission where id= ?', [missionid], function (error, results, fields) {
+      if (error) throw error;
+      console.log('The solution is: ', results[0].name);
+      var title = results[0].name;
+      messageData.message.text = "請問你在「" + title + "」關卡\n需要什麼幫助嗎？";
+      callSendAPI(messageData);    
+    });
+  }
 
-  connection.query('SELECT * FROM mission where id= ?', [missionid], function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results[0].name);
-    var title = results[0].name;
-    messageData.message.text = "請問你在「" + title + "」關卡\n需要什麼幫助嗎？";
-    callSendAPI(messageData);    
-  });
 
 }
 
