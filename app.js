@@ -267,19 +267,19 @@ function receivedMessage(event) {
     console.log("Quick reply for message %s with payload %s",
       messageId, quickReplyPayload);
     switch (quickReplyPayload) {
-      case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH':
-        sendTextMessage(senderID, "好啦看到了看到了");
+      // case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH':
+      //   sendTextMessage(senderID, "好啦看到了看到了");
         
-        break;
-      case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE':
-        sendTextMessage(senderID, "自己去網路上預約啦");
-        break;
+      //   break;
+      // case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE':
+      //   sendTextMessage(senderID, "自己去網路上預約啦");
+      //   break;
 
       case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ASK':
-        sendTextMessage(senderID, "不會問google喔？");
+        sendTextMessage(senderID, "你有什麼問題？");
         break;
 		
-	 case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_PREVIEW':
+	    case 'DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_PREVIEW':
         sendTextMessage(senderID, "是不會自己預習喔？");
         break;
 		
@@ -521,16 +521,16 @@ function askQuestion(recipientId,missionid) {
     },
     message: {
       quick_replies: [
-        {
-          "content_type": "text",
-          "title": "我完成了",
-          "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH"
-        },
-        {
-          "content_type": "text",
-          "title": "我要預約",
-          "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE"
-        },
+        // {
+        //   "content_type": "text",
+        //   "title": "我完成了",
+        //   "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_FINISH"
+        // },
+        // {
+        //   "content_type": "text",
+        //   "title": "我要預約",
+        //   "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RESERVE"
+        // },
         {
           "content_type": "text",
           "title": "我要發問",
